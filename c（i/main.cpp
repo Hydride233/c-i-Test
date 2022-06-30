@@ -60,7 +60,7 @@ int Delet_Re(int a[], int number,int b[]) {
 
 int main() {
 	FILE* fp = NULL;
-		fp = fopen("D:\\test\\test.xls", "r");
+		fp = fopen("C:\\Users\\lx\\Desktop\\wendang\\C++\\group_work\\final_work\\c（i\\c（i\\test.xls", "r");//C:\\Users\\lx\\Desktop\\wendang\\C++\\group_work\\final_work\\c（i\c\（i\\test.xls
 	//char test1[6] = { 'a','b','c','d','e','f'};
 	//int test2[6] = { 1,2,3,4,5,6 };
 		char test1[13];
@@ -86,23 +86,27 @@ int main() {
 		//printf("%d ", student[j].marks);
 	}
 
-	Fast_Sort(test3,test1,0,student_number - 1);
+	Fast_Sort(test3,test1,0,student_number - 1);//test3存储排序数列
 
 
 	for (int i = 0; i < student_number; i ++) {
 		student[i].marks = test3[i];
 		student[i].name = test1[i];
 		//printf("%c %d\n ", student[i].name,student[i].marks);
-	}
+	}//将排好序的数列和人物命存储入结构体
 
-	for (int i = 0; i < Delet_Re(test3, student_number, test4); i++); //printf("%d ", test4[i]);
+	for (int i = 0; i < Delet_Re(test3, student_number, test4); i++); //printf("%d ", test4[i]);test4存储去重排序数列
 
-	fp = fopen("D:\\test\\test.xls", "w");
+	fp = fopen("C:\\Users\\lx\\Desktop\\wendang\\C++\\group_work\\final_work\\c（i\\c（i\\test.xls", "w");//D:\\test\\test.xls
 
 	for (int i = 0; i < student_number; i++) {
 		fprintf(fp, "%c\t%d\n", student[i].name, student[i].marks);
 	}
-	
+	fprintf(fp, "去重序列为:\n");
+	for (int i = 0; i < student_number; i++) {
+		if (test4[i] != 0) fprintf(fp, "%d ", test4[i]);
+		else continue;
+	}
 	fclose(fp);
 	return 0;
 }
